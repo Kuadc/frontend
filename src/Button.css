@@ -1,0 +1,29 @@
+.buyButton{
+    display: flex;
+    justify-content: center;
+    color: rgb(252, 252, 252);
+    text-align: center;
+    width: 90%;
+    background-color:#535bf2;
+    border-color: #535bf2;
+    
+}
+
+.buyButton:hover{
+    background-color:#5a60d3;
+    border-color: #5a60d3;
+
+}
+
+.buyButton:active{
+    background-color:#6d72d1;
+    border-color: #6d72d1;
+
+}
+
+.buyResponse
+{
+    color: rgb(29, 204, 195);
+    margin-left: 20px;
+
+}
