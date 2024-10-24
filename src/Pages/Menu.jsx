@@ -1,18 +1,19 @@
 import React from 'react'
-import { Outlet,Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import "./Menu.css"
+import { router } from '../router/router'
 
 export default function Menu() {
   return (
     <>
     
     <nav>
-                <Link  className="link" to="/">Home</Link>
-                <Link className="link" to="/register">Register</Link>
-                <Link className='link' to="/login">Login</Link>
+                <NavLink  className="link nav-link" to="/">Home</NavLink>
+                <NavLink className="link nav-link" to="/Products">Products</NavLink>
+                <NavLink className="link nav-link" to="/register">Register</NavLink>
+                <NavLink className='link nav-link' to="/login">Login</NavLink>
             
     </nav>
-    <Outlet />
     </>
   )
 }

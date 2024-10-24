@@ -13,7 +13,6 @@ export default function useFetch(url) {
                     .finally(() => setLoading(false));
 
     }, []);
-    console.log(producto)
     return {producto, loading};
   
 }

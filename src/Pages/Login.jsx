@@ -2,22 +2,35 @@ import React from 'react'
 import "./Login.css"
 
 export default function Login() {
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const loginform = new FormData(event.target)
+    const username = loginform.get("username")
+    console.log("nombre de usuario:",username)
+    const name = event.target.username.value
+    console.log(name)
+    alert("Usted ingreso el usuario:")
+    
+    
+    
+  }
   return (
     <>
         
-        <div className='user'>
+        <div className='user' >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className='usersvg'>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
             </svg>
         </div>
-        <form action="" className='login'>
+        <form action="" className='login' onSubmit={handleSubmit}>
             <h3>Login</h3>
             
-            <input type="text" name="" id="User" placeholder='Enter User' />
+            <input type="text" name="username" id="User" placeholder='Enter User' />
             
-            <input type="password" name="" id="password" placeholder='Enter password' />
+            <input type="password" name="password" id="password" placeholder='Enter password' />
             <a className='forgot'>forgot password?</a>
-            <button className='button'>Send</button>
+            <button type="submit" className='button'>Send</button>
             <div className='signup'><p>Dont have an account?</p><p className='sign'>sing up!</p></div>
             <p className='or'>or</p>
 
