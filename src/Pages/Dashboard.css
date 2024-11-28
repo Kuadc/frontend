@@ -1,0 +1,169 @@
+form{
+    width: 350px;
+}
+
+.productsform{
+    display: flex;
+    flex-direction: column;
+    place-items: start;
+    width: 600px;
+
+
+
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding-top: 60px;
+
+
+}
+
+.usersvg{
+    width: 60px;
+    color: #535bf2;
+}
+
+input{
+    color: black;
+    border: 1px;
+    border-radius: 3px;
+    background-color: beige;
+    width: 100%;
+    padding: 0px;
+    height: 40px;
+    text-indent: 10px;
+    margin-bottom: 20px;
+    border-top-color: #535bf2;
+}
+
+input:focus{
+    outline-color: #535bf2;
+}
+
+
+textarea{
+    color: black;
+    border: 1px;
+    border-radius: 3px;
+    background-color: beige;
+    width: 100%;
+    padding: 0px;
+    height: 80px;
+    text-indent: 10px;
+    margin-bottom: 20px;
+    border-top-color: #535bf2;
+}
+
+textarea:focus{
+    outline-color: #535bf2;
+}
+
+
+
+label{
+    margin: 5px;
+    color: black;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.button{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #535bf2;
+    cursor: pointer;
+    color: white;
+    height: 40px;
+    
+}
+.button:hover{
+    color: #fcfcfc;
+    background-color: #5a60d3;
+}
+
+h3{
+    
+    color: black;
+    text-align: center;
+}
+
+.forgot{
+    color: #535bf2;
+    align-self: center;
+    cursor: pointer;
+}
+
+.signup{
+    color: black;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.sign{
+    color: #535bf2;
+    cursor: pointer;
+}
+.or{
+    margin: 0px;
+    align-self: center;
+    color: black;
+}
+
+.button-google{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    border-color: #535bf2;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+    height: 40px;
+    align-self: center;
+    width: 100%;
+}
+
+
+
+/* -------------tableProducts------------ */
+.tableProducts{
+    
+    margin: 50px;
+}
+
+td{
+    padding: 20px;
+
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Fondo gris claro para las filas impares */
+  }
+  
+  /* Estilo para las filas al pasar el mouse por encima */
+tr:hover {
+    background-color: #ddd; /* Fondo gris oscuro al pasar el mouse */
+  }
+
+.buttonSmallDanger{
+    color: white;
+    width: 100%;
+    font-size: smaller;
+    background-color: rgb(255, 104, 104);
+    padding: 5px;
+    
+}
+
+.buttonSmallOk{
+    margin-top: 10px;
+    color: white;
+    width: 100%;
+    font-size: smaller;
+    background-color: rgb(48, 134, 101);
+    padding: 5px;
+
+}

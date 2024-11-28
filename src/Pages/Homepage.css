@@ -8,3 +8,7 @@ img{
     padding-top: 20px;
     width: 30%;
 }
+
+.main-content {
+    flex: 1; /* El contenido principal se expandirá para ocupar el espacio disponible */
+  }

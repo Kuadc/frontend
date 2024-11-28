@@ -3,7 +3,7 @@ import Register from './Pages/Register'
 import Card from './Pages/Card'
 import Menu from './Pages/Menu'
 
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 

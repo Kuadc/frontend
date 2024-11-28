@@ -1,18 +1,31 @@
-import {useState, useEffect } from "react"
+import { useState, useEffect } from "react";
+import db from '../src/config/firebase.js'
+import { collection, getDocs } from 'firebase/firestore';
 
+export default function useFetch(formData) {
 
-export default function useFetch(url) {
-    const [producto, setproducto] = useState(null);
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null); 
 
-    useEffect(() =>{
-        setLoading(true);
-        fetch(url)
-                    .then(res=>res.json())
-                    .then((json) => setproducto(json))
-                    .finally(() => setLoading(false));
+    useEffect(() => {
+        const fetchProducts = async () => {
+          try {
+            const productsCollection = collection(db, "productos")
+            const productsSnapShot = await getDocs(productsCollection)
+            const productsList = productsSnapShot.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data()
+            }))
+            setData(productsList)
+          } catch (error) {
+            setError(error.message);
+            console.error("Error fetchind products:", error)
+          }
+        }
+    
+        fetchProducts()
+      }, [formData])
 
-    }, []);
-    return {producto, loading};
-  
+    return { data, loading, error }; // Devuelve también el error
 }

@@ -1,8 +1,14 @@
 import React from 'react'
 import "./Homepage.css"
+import Carrousel from '../components/carrousel'
+import Footer from '../components/Footer'
 
 export default function Homepage() {
   return (
-    <div className='div-image'><img src="/homepage.jpg" alt="" /></div>
+    <>
+    <Carrousel />
+    <Footer/>
+    </>
+    
   )
 }
