@@ -8,6 +8,7 @@ React: Biblioteca para construir interfaces de usuario.
 Firebase: Base de datos en tiempo real y servicios en la nube.
 React Router DOM: Gestión de rutas para aplicaciones React.
 
+</br></br>
 <h3>Dependencias</h3> 
 El proyecto utiliza las siguientes dependencias:
 
@@ -15,7 +16,7 @@ El proyecto utiliza las siguientes dependencias:
 "react": "^18.3.1",
 "react-dom": "^18.3.1",
 "react-router-dom": "^6.26.2"
-
+</br></br>
 <h3>Instalación</h3> 
 1 - Clona el repositorio:
 
@@ -36,16 +37,16 @@ npm install
 ```javascript
 npm run dev
 ```
-
+</br></br>
 <H3>Características</H3> 
-* Lista de Productos: Visualización de productos con su imagen, precio y descripción.
+<li>Lista de Productos: Visualización de productos con su imagen, precio y descripción.</li> 
 * CRUD de Productos:
   Crear: Agregar nuevos productos.
   Leer: Consultar información de productos.
   Actualizar: Modificar datos de un producto.
   Eliminar: Eliminar un producto.
 * Rutas Dinámicas: Navegación fluida entre páginas.
-
+</br></br>
 <H3>Autor</H3> 
 Kuadc - Proyecto desarrollado como parte de un ecommerce de ropa.
 
