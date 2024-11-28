@@ -17,8 +17,36 @@ El proyecto utiliza las siguientes dependencias:
 "react-router-dom": "^6.26.2"
 
 <h3>Instalación</h3> 
-Clona el repositorio:
+1 - Clona el repositorio:
 
 ```javascript
 git clone https://github.com/Kuadc/MyStore.git
 ```
+2 - Navega al directorio del proyecto:
+```javascript
+cd MyStore
+```
+
+3 - Instala las dependencias:
+```javascript
+npm install
+```
+
+4 - Inicia el servidor de desarrollo:
+```javascript
+npm run dev
+```
+
+<H3>Características</H3> 
+* Lista de Productos: Visualización de productos con su imagen, precio y descripción.
+* CRUD de Productos:
+  Crear: Agregar nuevos productos.
+  Leer: Consultar información de productos.
+  Actualizar: Modificar datos de un producto.
+  Eliminar: Eliminar un producto.
+* Rutas Dinámicas: Navegación fluida entre páginas.
+
+<H3>Autor</H3> 
+Kuadc - Proyecto desarrollado como parte de un ecommerce de ropa.
+
+
