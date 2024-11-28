@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCqTs7PHrONvm7PAr9H24X47S6M3Rrro64",
-    authDomain: "comercio-ropa-app.firebaseapp.com",
-    projectId: "comercio-ropa-app",
-    storageBucket: "comercio-ropa-app.firebasestorage.app",
-    messagingSenderId: "281461342850",
-    appId: "1:281461342850:web:6c82bd1d6f83cf9aa22a9b"
+    apiKey: import.meta.env.VITE_API_KEY,
+    authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_APP_ID
     
 };
 // Inicializa Firebase
