@@ -92,10 +92,10 @@ export default function Dashboard() {
 
   return (
     <>
-        <h3>Carga y Modificacion de Productos</h3>
+        <h3>Load new products or make changes</h3>
             
         <form action="" className='productsform' onSubmit={handleSubmit}>
-                <h3>Producto</h3>
+                <h3>Product</h3>
                 
                 <label>Title</label>
                 <input type="text" name="title" id="title" value={formData.title} placeholder='Enter title' required onChange={handleChange} />
@@ -103,7 +103,7 @@ export default function Dashboard() {
                 <label>Price</label>
                 <input type="number" name="price" id="price" value={formData.price} placeholder='Enter price' required onChange={handleChange}/>
                 
-                <label>Description of Producto</label>
+                <label>Description of Product</label>
                 <textarea id="description" name="description" value={formData.description} placeholder="Write a description of the product..." rows="6"  cols="50" maxLength="1000"  required onChange={handleChange}
                 ></textarea>
 
@@ -113,7 +113,7 @@ export default function Dashboard() {
                 <label>Image</label>
                 <input type="text" name="image" id="image" value={formData.image} placeholder='link image' required onChange={handleChange}/>
                 
-                <button type="submit" className='button'>Guardar o Modificar cambios</button>
+                <button type="submit" className='button'>Save or Modify changes</button>
         </form>
             
 
@@ -140,10 +140,10 @@ export default function Dashboard() {
                 <td>{product.sku}</td>
                 <td>
                     <button className="buttonSmallDanger" onClick={() => handleEdit(product)}>
-                    Modificar
+                    Modify
                     </button>
                     <button className="buttonSmallOk" onClick={() => handleDelete(product.id)}>
-                    Eliminar
+                    Delete
                     </button>
                 </td>
                 </tr>

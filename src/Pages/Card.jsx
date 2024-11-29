@@ -11,10 +11,10 @@ export default function Card() {
    
     return (
       <div className="Producto">
-          <p className="title">Busque su producto por nombre</p>
+          <p className="title">Search for your product by name</p>
           <input
               type="search"
-              placeholder="Buscar..."
+              placeholder="Search..."
               onChange={(e) => setText(e.target.value)}
           />
 
