@@ -4,6 +4,10 @@ import registerUser from '../config/register.jsx'
 
 export default function Register () {
 
+    const getCurrentUser = () => {
+    const auth = getAuth();
+    return auth.currentUser; // Devuelve el usuario autenticado o null
+      };
     const handleSubmit = async (event) => {
         event.preventDefault();
         const loginform = new FormData(event.target);
