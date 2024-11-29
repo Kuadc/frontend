@@ -8,10 +8,6 @@ export default function Register () {
   const navigate = useNavigate(); // Hook para redirigir
 
 
-    const getCurrentUser = () => {
-    const auth = getAuth();
-    return auth.currentUser; // Devuelve el usuario autenticado o null
-      };
     const handleSubmit = async (event) => {
         event.preventDefault();
         const loginform = new FormData(event.target);
