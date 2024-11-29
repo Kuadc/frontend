@@ -1,8 +1,12 @@
 import React from 'react'
 import "./Register.css"
 import registerUser from '../config/register.jsx'
+import { useNavigate } from 'react-router-dom';
 
 export default function Register () {
+    
+  const navigate = useNavigate(); // Hook para redirigir
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -15,16 +19,15 @@ export default function Register () {
         try {
           const userCredential = await registerUser(username, password);
           console.log("usurario que trae el login",userCredential);
-          const user = getCurrentUser(); // Obtén el usuario tras el login
-          if (user) {
-            alert("Inicio de sesión exitoso");
-            navigate("/Dashboard"); // Redirige al Dashboard
+          if (userCredential) {
+            alert("Registro exitoso");
+            navigate("/Dashboard"); // Redirige al login
           } else {
             alert("Usuario o contraseña incorrectos");
           }
         } catch (error) {
-          console.error("Error durante el inicio de sesión:", error);
-          alert("Hubo un error al iniciar sesión");
+          console.error("Error durante el registro:", error);
+          alert("Error al registrarse");
         }
       };
     

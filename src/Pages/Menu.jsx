@@ -4,10 +4,12 @@ import "./Menu.css"
 import { router } from '../router/router'
 import { getAuth, onAuthStateChanged,signOut  } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Menu() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate(); // Hook para redirigir
 
   useEffect(() => {
     const auth = getAuth();
