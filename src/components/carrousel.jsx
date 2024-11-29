@@ -6,6 +6,7 @@ import {data} from "../assets/data"
 export default function carrousel() {
     const listRef = useRef()
     const [currentImg, setcurrentImg] = useState(0)
+    
 
     useEffect(() => {
         const interval = setInterval(() => {
