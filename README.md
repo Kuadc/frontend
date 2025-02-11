@@ -47,7 +47,7 @@ npm run dev
 </br></br>
 <H3>Características</H3> 
 <li>Lista de Peliculas: Visualización de Peiculas con su imagen, titulo, rating y descripción.</li> 
-<li>CRUD de Productos:</li> 
+<li>CRUD de Peliculas:</li> 
 
   <ul><li>Crear: Agregar nuevas peliculas.</li></ul> 
   <ul><li>Actualizar: Modificar datos de una pelicula.</li></ul>
