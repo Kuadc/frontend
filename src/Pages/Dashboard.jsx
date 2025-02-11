@@ -1,20 +1,17 @@
 import React from 'react'
 import './Dashboard.css'
 import { useState } from 'react';
-import useFetch from '../useFetch';
+import useFetch from '../services/api';
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore"
-import db from '../config/firebase.js'
-import { data } from '../assets/data';
 
 export default function Dashboard() {
 
-    
 
     const initialFormData = {
-        title: "",
-        price: 0,
+        name: "",
+        year: 0,
+        rating: 0,
         description: "",
-        sku: 0,
         image: ""
       }
     

@@ -1,5 +1,5 @@
 import './Card.css'
-import useFetch from '../useFetch'
+import useFetch from '../services/api'
 import Button from '../Button';
 import { useState } from 'react';
 
