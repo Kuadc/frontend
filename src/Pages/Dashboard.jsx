@@ -1,154 +1,163 @@
-import React from 'react'
-import './Dashboard.css'
-import { useState } from 'react';
-import useFetch from '../services/api';
-import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore"
+import { useEffect, useState } from "react";
+import { getAllMovies, addMovie, updateMovie, deleteMovie } from "../services/api";
+import "./Dashboard.css";
 
-export default function Dashboard() {
+const Dashboard = () => {
+  
+  const InitialFormData ={
+    name: "",
+    year: "",
+    rating: "",
+    description: "",
+    image: ""
+  }
 
+  const [movies, setMovies] = useState([]);
+  const [formData, setFormData] = useState(InitialFormData);
+  const [editingId, setEditingId] = useState(null); // Para saber si estamos editando
 
-    const initialFormData = {
-        name: "",
-        year: 0,
-        rating: 0,
-        description: "",
-        image: ""
-      }
-    
-      const [formData, setFormData] = useState(initialFormData)
-      const [trigger, setrigger] = useState(false)
-      const [editMode, setEditMode] = useState(false)
-      const [editProductId, setEditProductId] = useState(null)
+  
+  // Obtener peliculas al montar el componente
+  useEffect(() => { 
+    fetchMovies();
+  }, []);
 
-      const { data: productos, loading, error }  = useFetch(trigger)
+  const fetchMovies = async () => {
+    const data = await getAllMovies();
+    setMovies(data);
+  };
 
-      const handleSubmit = async (event) => {
-        event.preventDefault()
-        const productsForm = new FormData(event.target);
-        const newProducts = {
-            title: productsForm.get("title"),
-            price: productsForm.get("price"),
-            description: productsForm.get("description"),
-            sku: productsForm.get("sku"),
-            image: productsForm.get("image")
-        }
-        
-        
-        try {
-          if (editMode) {
-            const productRef = doc(db, "productos", editProductId)
-            await updateDoc(productRef, formData)
-            alert("Producto actualizado correctamente...")
-            setEditMode(false)
-            setEditProductId(null)
-            setFormData(initialFormData)
-            setrigger(!trigger)
-          } else {
-            await addDoc(collection(db, "productos"), newProducts)
-            alert("Producto agregado exitosamente...")
-            setFormData(!trigger)
-            event.target.reset()
+  // Manejar cambios en el formulario
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-            
-          }
-        } catch (error) {
-          console.error("Error al guardar el producto:", error)
-        }
-        
-      }
+  // Manejar envío del formulario para agregar/modificar
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (editingId) {
+      await updateMovie(editingId, formData);
+    } else {
+      await addMovie(formData);
+    }
+    setFormData(InitialFormData);  // Limpiar formulario
+    setEditingId(null);
+    fetchMovies();
+  };
 
-      const handleEdit = (product) => {
-        setFormData({
-          title: product.title,
-          price: product.price,
-          description: product.description,
-          sku: product.sku,
-          image: product.image
-        })
-        setEditMode(true)
-        setEditProductId(product.id)
-        setrigger(!trigger)
-        console.log(formData)
-      }
-    
-    
-      const handleDelete = async (productId) => {
-        try {
-          await deleteDoc(doc(db, "productos", productId))
-          alert("Producto borrado con éxito...")
-          setrigger(!trigger)
-        } catch (error) {
-    
-        }
-      }
+  // Cargar datos en el formulario para editar
+  const handleEdit = (movie) => {
+    setFormData({ name: movie.name, year: movie.year, rating: movie.rating, description: movie.description, image: movie.image });
+    setEditingId(movie._id);
+  };
 
-      const handleChange = (event) => {
-        const { name, value, type, checked } = event.target
-        setFormData({ ...formData, [name]: event.target.value })
-      }
+  // Eliminar una pelicula
+  const handleDelete = async (id) => {
+    if (confirm("¿Estas seguro que quieres borrar a la pelicula?")) {
+      await deleteMovie(id);
+      fetchMovies();
+    }
+  };
 
   return (
     <>
-        <h3>Load new products or make changes</h3>
-            
-        <form action="" className='productsform' onSubmit={handleSubmit}>
-                <h3>Product</h3>
-                
-                <label>Title</label>
-                <input type="text" name="title" id="title" value={formData.title} placeholder='Enter title' required onChange={handleChange} />
-                
-                <label>Price</label>
-                <input type="number" name="price" id="price" value={formData.price} placeholder='Enter price' required onChange={handleChange}/>
-                
-                <label>Description of Product</label>
-                <textarea id="description" name="description" value={formData.description} placeholder="Write a description of the product..." rows="6"  cols="50" maxLength="1000"  required onChange={handleChange}
-                ></textarea>
-
-                <label>Sku</label>
-                <input type="number" name="sku" id="sku" value={formData.sku} placeholder='enter sku' required onChange={handleChange}/>
-
-                <label>Image</label>
-                <input type="text" name="image" id="image" value={formData.image} placeholder='link image' required onChange={handleChange}/>
-                
-                <button type="submit" className='button'>Save or Modify changes</button>
-        </form>
-            
-
-
-
-        <table className='tableProducts'>
-            <thead className='titlesProducts'>
-            <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Descripción</th>
-                <th>sku</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            {productos?.map((product) => (
-                <tr key={product.id}>
-                <td><img src={product.image} alt={product.name} style={{ width: "50px", height: "50px" }} /></td>
-                <td>{product.title}</td>
-                <td>${product.price}</td>
-                <td>{product.description}</td>
-                <td>{product.sku}</td>
-                <td>
-                    <button className="buttonSmallDanger" onClick={() => handleEdit(product)}>
-                    Modify
-                    </button>
-                    <button className="buttonSmallOk" onClick={() => handleDelete(product.id)}>
-                    Delete
-                    </button>
-                </td>
-                </tr>
-            ))}
-            </tbody>
-        </table>
-
     
+      <section className="section">
+        <div className="container">
+          <h1 className="">Dashboard of Movies</h1>
+
+          {/* Formulario para agregar/modificar */}
+          <div className="box">
+            <h2 className="subtitle">{editingId ? "Edit Movie" : "Add Movie"}</h2>
+            <form onSubmit={handleSubmit}>
+
+              {/* field of name */}
+              <div className="field">
+                <label className="label">Name</label>
+                <div className="control">
+                  <input className="input" type="text" name="name" value={formData.name} onChange={handleChange} required />
+                </div>
+              </div>
+
+              {/* field of year  */}
+              <div className="field">
+                <label className="label">Year</label>
+                <div className="control">
+                  <input className="input" type="number" name="year" value={formData.year} onChange={handleChange} required />
+                </div>
+              </div>
+
+              {/* field of rating  */}
+              <div className="field">
+                <label className="label">Rating</label>
+                <div className="control">
+                  <input className="input" type="number" name="rating" value={formData.rating} onChange={handleChange} required />
+                </div>
+              </div>
+
+              {/* field of description  */}
+              <div className="field">
+                <label className="label">Descripción</label>
+                <div className="control">
+                  <textarea
+                    className="textarea description"
+                    name="description"
+                    value={formData.description || ""}
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+
+              {/* field of image  */}
+              <div className="field">
+                <label className="label">image</label>
+                <div className="control">
+                  <input className="input" type="text" name="image" value={formData.image} onChange={handleChange} required />
+                </div>
+              </div>
+
+              <div className="control">
+                <button type="submit" className={`button ${editingId ? "is-warning" : "is-primary"}`}>
+                  {editingId ? "Actualizar" : "Agregar"}
+                </button>
+              </div>
+            </form>
+          </div>
+
+          {/* Tabla de estudiantes */}
+          {movies.length > 0 ? (
+            <table className="table is-fullwidth is-striped is-hoverable mt-4">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Year</th>
+                  <th>Rating</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {movies.map((movie) => (
+                  <tr key={movie._id}>
+                    <td>{movie.name}</td>
+                    <td>{movie.year}</td>
+                    <td>{movie.rating}</td>
+                    <td>
+                      <button className="button is-small is-warning mr-2" onClick={() => handleEdit(movie)}>Editar</button>
+                      <button className="button is-small is-danger" onClick={() => handleDelete(movie._id)}>Eliminar</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p className="has-text-centered mt-4">No hay peliculas registradas.</p>
+          )}
+        </div>
+      </section>
     </>
-  )
-}
+  );
+};
+
+export { Dashboard };

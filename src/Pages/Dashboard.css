@@ -1,169 +1,173 @@
-form{
-    width: 350px;
-}
+/* ─── LAYOUT & CONTAINERS ────────────────────────────────────────────── */
 
-.productsform{
-    display: flex;
-    flex-direction: column;
-    place-items: start;
-    width: 600px;
-
-
-
-}
-
-.user{
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    padding-top: 60px;
-
-
-}
-
-.usersvg{
-    width: 60px;
-    color: #535bf2;
-}
-
-input{
-    color: black;
-    border: 1px;
-    border-radius: 3px;
-    background-color: beige;
-    width: 100%;
-    padding: 0px;
-    height: 40px;
-    text-indent: 10px;
-    margin-bottom: 20px;
-    border-top-color: #535bf2;
-}
-
-input:focus{
-    outline-color: #535bf2;
-}
-
-
-textarea{
-    color: black;
-    border: 1px;
-    border-radius: 3px;
-    background-color: beige;
-    width: 100%;
-    padding: 0px;
-    height: 80px;
-    text-indent: 10px;
-    margin-bottom: 20px;
-    border-top-color: #535bf2;
-}
-
-textarea:focus{
-    outline-color: #535bf2;
-}
-
-
-
-label{
-    margin: 5px;
-    color: black;
-    margin: 0px;
-    margin-bottom: 5px;
-}
-
-.button{
-    width: 100%;
-    margin-top: 20px;
-    background-color: #535bf2;
-    cursor: pointer;
-    color: white;
-    height: 40px;
-    
-}
-.button:hover{
-    color: #fcfcfc;
-    background-color: #5a60d3;
-}
-
-h3{
-    
-    color: black;
-    text-align: center;
-}
-
-.forgot{
-    color: #535bf2;
-    align-self: center;
-    cursor: pointer;
-}
-
-.signup{
-    color: black;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.sign{
-    color: #535bf2;
-    cursor: pointer;
-}
-.or{
-    margin: 0px;
-    align-self: center;
-    color: black;
-}
-
-.button-google{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 20px;
-    border-color: #535bf2;
-    background-color: white;
-    cursor: pointer;
-    color: black;
-    height: 40px;
-    align-self: center;
-    width: 100%;
-}
-
-
-
-/* -------------tableProducts------------ */
-.tableProducts{
-    
-    margin: 50px;
-}
-
-td{
-    padding: 20px;
-
-}
-
-tr:nth-child(odd) {
-    background-color: #f2f2f2; /* Fondo gris claro para las filas impares */
+/* Section: Provides vertical padding */
+.section {
+    padding: 3rem 1.5rem;
   }
   
-  /* Estilo para las filas al pasar el mouse por encima */
-tr:hover {
-    background-color: #ddd; /* Fondo gris oscuro al pasar el mouse */
+  /* Container: Centers content with a max-width */
+  .container {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
   }
-
-.buttonSmallDanger{
-    color: white;
+  
+  /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────── */
+  
+  /* Title: Main heading styling */
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Subtitle: Secondary heading styling */
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Utility: Centers text */
+  .has-text-centered {
+    text-align: center;
+  }
+  
+  /* ─── BOXES & PANELS ───────────────────────────────────────────────────── */
+  
+  /* Box: A bordered container with padding */
+  .box {
+    padding: 1.5rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  /* ─── FORM ELEMENTS ───────────────────────────────────────────────────── */
+  
+  /* Field: Container for each form field with bottom spacing */
+  .field {
+    margin-bottom: 1rem;
+  }
+  
+  /* Label: Text label for inputs */
+  .label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Control: Wraps form controls (inputs, buttons) */
+  .control {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Input: Standard text or number input styling */
+  .input {
+    display: block;
     width: 100%;
-    font-size: smaller;
-    background-color: rgb(255, 104, 104);
-    padding: 5px;
-    
-}
-
-.buttonSmallOk{
-    margin-top: 10px;
-    color: white;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  /* ─── BUTTONS ─────────────────────────────────────────────────────────── */
+  
+  /* Base button style */
+  .button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    background-color: #f5f5f5;
+    color: #363636;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  /* Hover state for button */
+  .button:hover {
+    background-color: #e8e8e8;
+  }
+  
+  /* Button color modifiers */
+  .button.is-primary {
+    background-color: #00d1b2;
+    color: #fff;
+    border-color: transparent;
+  }
+  
+  .button.is-warning {
+    background-color: #ffdd57;
+    color: #363636;
+    border-color: transparent;
+  }
+  
+  .button.is-danger {
+    background-color: #ff3860;
+    color: #fff;
+    border-color: transparent;
+  }
+  
+  /* Small button */
+  .button.is-small {
+    padding: 0.25em 0.5em;
+    font-size: 0.875rem;
+  }
+  
+  /* Utility: Margin right */
+  .mr-2 {
+    margin-right: 0.5rem;
+  }
+  
+  /* ─── TABLE ───────────────────────────────────────────────────────────── */
+  
+  /* Table: Base styling for tables */
+  .table {
     width: 100%;
-    font-size: smaller;
-    background-color: rgb(48, 134, 101);
-    padding: 5px;
-
-}
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  /* Fullwidth: Ensures table spans 100% of the container */
+  .table.is-fullwidth {
+    width: 100%;
+  }
+  
+  /* Striped: Zebra-striping for table rows */
+  .table.is-striped tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Hoverable: Highlight rows on hover */
+  .table.is-hoverable tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* ─── UTILITY CLASSES ─────────────────────────────────────────────────── */
+  
+  /* Margin top utility */
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+  
+  /* Para un textarea de descripción más amplio y alto */
+.textarea.description {
+    width: 100%;
+    min-height: 150px; /* Altura mínima aumentada */
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #dbdbdb;  
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical; /* Permite cambiar el tamaño verticalmente */
+  }
+  
+  td{
+    text-align: center;
+  }

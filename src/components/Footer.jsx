@@ -7,7 +7,7 @@ export default function Footer() {
     return (
       <footer className="footer">
         <div className="footer-content">
-          <p>&copy; {currentYear} My Store. All rights reserved..</p>
+          <p>&copy; {currentYear} My Movies. All rights reserved..</p>
           <div className="footer-links">
             <a href="#" className="footer-link">About us</a>
             <a href="#" className="footer-link">Contact</a>

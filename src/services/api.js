@@ -1,10 +1,10 @@
 // api.js estará encargado de ejecutar las funciones del backend
 import axios from "axios";
 
-const BASE_URL_API = "https://backend-production-237b.up.railway.app/movies";
-
+const BASE_URL_API = "/api/movies";
+//fetch("/api/movies")
 // Obtener todos los estudiantes
-const getAllStudents = async () => {
+const getAllMovies = async () => {
   try {
     const response = await axios.get(BASE_URL_API);
     return response.data;
@@ -15,7 +15,7 @@ const getAllStudents = async () => {
 };
 
 // Agregar un estudiante
-const addStudent = async (student) => {
+const addMovie = async (student) => {
   try {
     const response = await axios.post(BASE_URL_API, student);
     return response.data;
@@ -25,7 +25,7 @@ const addStudent = async (student) => {
 };
 
 // Modificar un estudiante
-const updateStudent = async (id, student) => {
+const updateMovie = async (id, student) => {
   try {
     const response = await axios.patch(`${BASE_URL_API}/${id}`, student);
     return response.data;
@@ -35,7 +35,7 @@ const updateStudent = async (id, student) => {
 };
 
 // Eliminar un estudiante
-const deleteStudent = async (id) => {
+const deleteMovie = async (id) => {
   try {
     await axios.delete(`${BASE_URL_API}/${id}`);
   } catch (error) {
@@ -43,4 +43,4 @@ const deleteStudent = async (id) => {
   }
 };
 
-export { getAllStudents, addStudent, updateStudent, deleteStudent };
+export { getAllMovies, addMovie, updateMovie, deleteMovie };
