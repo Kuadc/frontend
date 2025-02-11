@@ -1,7 +1,7 @@
-<img src="https://png.pngtree.com/png-vector/20190221/ourlarge/pngtree-shopping-bag-graphic-design-template-png-image_690677.jpg" style="width: 100px; height: 100px;">
 
 
-<h1>Homepage and Dashboard de peliculas/h1>
+
+<h1>Homepage and Dashboard de peliculas</h1>
 <p></p>Este proyecto Esta desarrollado con React utilizando Vite como herramienta de desarrollo rápido. El proyecto incluye las funcionalidades básicas de un crud, como agregar, editar información y eliminar artículos.</p>
 
 <h3>Tecnologías utilizadas</h3>
