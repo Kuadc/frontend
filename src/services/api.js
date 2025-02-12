@@ -1,7 +1,7 @@
 // api.js estará encargado de ejecutar las funciones del backend
 import axios from "axios";
 
-const BASE_URL_API = process.env.BASE_URL_API;
+const BASE_URL_API = "https://backend-production-237b.up.railway.app/movies";
 //fetch("/api/movies")
 // Obtener todos los estudiantes
 const getAllMovies = async () => {
